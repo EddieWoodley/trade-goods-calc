@@ -4,7 +4,7 @@ let TradeGoods = [
     price: 1
   },
   {
-    title: "1 lb. of flour or one chicken",
+    title: "1 lb. of flour",
     price: 2
   },
   {
@@ -12,7 +12,11 @@ let TradeGoods = [
     price: 5
   },
   {
-    title: "1 lb. of iron or 1 sq. yd. of canvas",
+    title: "1 lb. of iron",
+    price: 10
+  },
+  {
+    title: "1 sq. yd. of canvas",
     price: 10
   },
   {
@@ -20,15 +24,19 @@ let TradeGoods = [
     price: 50
   },
   {
-    title: "1 lb. of ginger or one goat",
+    title: "1 lb. of ginger",
     price: 100
   },
   {
-    title: "1 lb. of cinnamon or pepper, or one sheep",
+    title: "1 lb. of cinnamon",
     price: 200
   },
   {
-    title: "1 lb. of cloves or one pig",
+    title: "1 lb. of pepper",
+    price: 200
+  },
+  {
+    title: "1 lb. of cloves",
     price: 300
   },
   {
@@ -36,11 +44,11 @@ let TradeGoods = [
     price: 500
   },
   {
-    title: "1 sq. yd. of silk or one cow",
+    title: "1 sq. yd. of silk",
     price: 1000
   },
   {
-    title: "1 lb. of saffron or one ox",
+    title: "1 lb. of saffron",
     price: 1500
   }
 ]
