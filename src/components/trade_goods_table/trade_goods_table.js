@@ -49,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
   grid: {
     marginBottom: theme.spacing(2)
+  },
+  button: {
+    marginRight: theme.spacing(1)
   }
 }))
 
@@ -141,14 +144,14 @@ const TradeGoodsTable = (props) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={1} className={classes.grid}>
-        <Grid item xs={8}>
-          <Button variant="contained" color="primary" onClick={rollEconomy}>Roll Local Economy</Button>
-          <Button variant="contained" color="primary" onClick={copyBBCode}>Copy BBCode</Button>
+        <Grid item xs={12} sm={8}>
+          <Button className={classes.button} variant="contained" color="primary" onClick={rollEconomy}>Roll Local Economy</Button>
+          <Button className={classes.button} variant="contained" color="primary" onClick={copyBBCode}>Copy BBCode</Button>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} md={2}>
           <TextField label="Trade Check Modifier" fullWidth type="number" value={tradeCheckModifier} min="-0.2" max="0.2" step="0.5" onChange={e => setTradeCheckModifier(parseFloat(e.target.value))} />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} md={2}>
           <TextField label="Speciality Modifier" fullWidth type="number" value={specialityModifier} min="0" max="0.2" step="0.5" onChange={e => setSpecialityModifier(parseFloat(e.target.value))} />
         </Grid>
       </Grid>
