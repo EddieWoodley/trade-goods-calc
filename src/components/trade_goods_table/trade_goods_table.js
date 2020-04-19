@@ -128,6 +128,7 @@ const TradeGoodsTable = (props) => {
     result += "[th]Trade Good[/th]"
     result += "[th]Base Price[/th]"
     result += "[th]Demand[/th]"
+    result += "[th]Is Speciality[/th]"
     result += "[/tr]\n"
     items.forEach(item => {
       const demand = demandLevels[item.demand]
@@ -135,6 +136,7 @@ const TradeGoodsTable = (props) => {
       result += `[td]${item.tradeGood.title}[/td]`
       result += `[td]${displayPrice(item.tradeGood.price)}[/td]`
       result += `[td]${(demand.title)}[/td]`
+      result += `[td]${(item.isSpeciality ? "Yes" : "No")}[/td]`
       result += "[/tr]\n"
     });
     result += "[/table]"
@@ -143,14 +145,15 @@ const TradeGoodsTable = (props) => {
 
   const copyMarkdown = (event) => {
     let result = ""
-    result += "| Trade Good | Base Price | Demand |\n"
-    result += "|:---|:---:|:---:|\n"
+    result += "| Trade Good | Base Price | Demand | Is Speciality |\n"
+    result += "|:---|:---:|:---:|:---:|\n"
     items.forEach(item => {
       const demand = demandLevels[item.demand]
       result += "| "
       result += `${item.tradeGood.title} | `
       result += `${displayPrice(item.tradeGood.price)} | `
-      result += `${(demand.title)} |\n`
+      result += `${(demand.title)} | `
+      result += `${(item.isSpeciality ? "Yes" : "No")}|\n`
     });
     navigator.clipboard.writeText(result);
   }
