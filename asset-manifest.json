@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/trade-goods-calc/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/trade-goods-calc/static/js/main.590c4058.chunk.js",
-    "main.js.map": "/trade-goods-calc/static/js/main.590c4058.chunk.js.map",
+    "main.js": "/trade-goods-calc/static/js/main.1ad1aa47.chunk.js",
+    "main.js.map": "/trade-goods-calc/static/js/main.1ad1aa47.chunk.js.map",
     "runtime-main.js": "/trade-goods-calc/static/js/runtime-main.da074934.js",
     "runtime-main.js.map": "/trade-goods-calc/static/js/runtime-main.da074934.js.map",
     "static/js/2.98ac31a3.chunk.js": "/trade-goods-calc/static/js/2.98ac31a3.chunk.js",
     "static/js/2.98ac31a3.chunk.js.map": "/trade-goods-calc/static/js/2.98ac31a3.chunk.js.map",
     "index.html": "/trade-goods-calc/index.html",
-    "precache-manifest.20600d33c537d5fc0701b108744a6d80.js": "/trade-goods-calc/precache-manifest.20600d33c537d5fc0701b108744a6d80.js",
+    "precache-manifest.26c2f43a9637db3c235fe5af4cec457e.js": "/trade-goods-calc/precache-manifest.26c2f43a9637db3c235fe5af4cec457e.js",
     "service-worker.js": "/trade-goods-calc/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/trade-goods-calc/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.98ac31a3.chunk.js.LICENSE.txt": "/trade-goods-calc/static/js/2.98ac31a3.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.da074934.js",
     "static/js/2.98ac31a3.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.590c4058.chunk.js"
+    "static/js/main.1ad1aa47.chunk.js"
   ]
 }
