@@ -32,7 +32,7 @@ let TradeGoods = [
     price: 300
   },
   {
-    title: "1 lb. of silver or 1 sq. yd. of linen",
+    title: "1 sq. yd. of linen",
     price: 500
   },
   {
