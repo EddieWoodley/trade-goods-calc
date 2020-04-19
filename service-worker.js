@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/trade-goods-calc/precache-manifest.26c2f43a9637db3c235fe5af4cec457e.js"
+  "/trade-goods-calc/precache-manifest.fab5c9e4bc4600fd199283115a0be104.js"
 );
 
 self.addEventListener('message', (event) => {
