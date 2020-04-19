@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1dcbee03881eee9ad3565e4b70f19dd7",
+    "revision": "adbe077e2cd37ed5fda65b253bf4f761",
     "url": "/trade-goods-calc/index.html"
   },
   {
