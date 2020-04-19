@@ -1,0 +1,1 @@
+export { default as TradeGoods } from './trade_goods'
