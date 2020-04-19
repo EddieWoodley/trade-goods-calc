@@ -140,6 +140,20 @@ const TradeGoodsTable = (props) => {
     result += "[/table]"
     navigator.clipboard.writeText(result);
   }
+
+  const copyMarkdown = (event) => {
+    let result = ""
+    result += "| Trade Good | Base Price | Demand |\n"
+    result += "|:---|:---:|:---:|\n"
+    items.forEach(item => {
+      const demand = demandLevels[item.demand]
+      result += "| "
+      result += `${item.tradeGood.title} | `
+      result += `${displayPrice(item.tradeGood.price)} | `
+      result += `${(demand.title)} |\n`
+    });
+    navigator.clipboard.writeText(result);
+  }
   
   return (
     <div className={classes.root}>
@@ -147,6 +161,7 @@ const TradeGoodsTable = (props) => {
         <Grid item xs={12} sm={8}>
           <Button className={classes.button} variant="contained" color="primary" onClick={rollEconomy}>Roll Local Economy</Button>
           <Button className={classes.button} variant="contained" color="primary" onClick={copyBBCode}>Copy BBCode</Button>
+          <Button className={classes.button} variant="contained" color="primary" onClick={copyMarkdown}>Copy Markdown</Button>
         </Grid>
         <Grid item xs={6} md={2}>
           <TextField label="Trade Check Modifier" fullWidth type="number" value={tradeCheckModifier} min="-0.2" max="0.2" step="0.5" onChange={e => setTradeCheckModifier(parseFloat(e.target.value))} />
