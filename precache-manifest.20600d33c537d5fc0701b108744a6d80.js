@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "adbe077e2cd37ed5fda65b253bf4f761",
+    "revision": "5b2986e050714fa6949e1d3eeceeffcb",
     "url": "/trade-goods-calc/index.html"
   },
   {
-    "revision": "fce40a5db53e44891e8f",
+    "revision": "03dab2e826d603cde9e5",
     "url": "/trade-goods-calc/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trade-goods-calc/static/js/2.98ac31a3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fce40a5db53e44891e8f",
-    "url": "/trade-goods-calc/static/js/main.92796cf7.chunk.js"
+    "revision": "03dab2e826d603cde9e5",
+    "url": "/trade-goods-calc/static/js/main.590c4058.chunk.js"
   },
   {
     "revision": "cc5e061daa7ad85f8453",
