@@ -1,1 +1,0 @@
-export { default as TradeGoodsTable } from './trade_goods_table'
