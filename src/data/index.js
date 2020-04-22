@@ -1,2 +1,2 @@
-export { TradeGoods } from './trade_goods'
-export { DemandLevels } from './demand_levels'
+export { TradeGoods } from './trade-goods'
+export { DemandLevels } from './demand-levels'

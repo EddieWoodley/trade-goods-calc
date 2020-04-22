@@ -1,5 +1,6 @@
 import React from 'react'
-import { Table, TableHead, TableCell, TableBody, TableFooter, TableRow, TableContainer, Button, makeStyles } from '@material-ui/core'
+import { Table, TableHead, TableCell, TableBody, TableRow, TableContainer, Button, makeStyles } from '@material-ui/core'
+import { formatPrice, formatModifier } from '../../utils'
 
 const useStyles = makeStyles((theme) => ({
   buttons: {
@@ -37,9 +38,9 @@ const LocalEconomyTable = (props) => {
             {localEconomy.map((item => (
               <TableRow>
                 <TableCell>{item.tradeGood.title}</TableCell>
-                <TableCell>{item.tradeGood.price}</TableCell>
+                <TableCell>{formatPrice(item.tradeGood.price)}</TableCell>
                 <TableCell>{item.demandLevel.title}</TableCell>
-                <TableCell>{item.demandLevel.modifier}</TableCell>
+                <TableCell>{formatModifier(item.demandLevel.modifier)}</TableCell>
                 <TableCell>{item.isSpeciality ? "Yes" : "No"}</TableCell>
               </TableRow>
             )))}

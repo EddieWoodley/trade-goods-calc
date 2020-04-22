@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { TradeGoods, DemandLevels } from '../../data'
 import { Paper, Tabs, Tab, Typography, makeStyles } from '@material-ui/core'
-import { LocalEconomyTable } from '../local_economy_table'
+import { LocalEconomyTable } from '../'
 
 const useStyles = makeStyles((theme) => ({
   tabs: {

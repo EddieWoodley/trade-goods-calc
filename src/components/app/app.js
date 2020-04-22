@@ -1,8 +1,6 @@
 import React from 'react'
-import { TradeGoodsTable } from '../trade_goods_table'
-import { TradeGoods, DemandLevels } from '../../data'
 import { makeStyles, Container, CssBaseline } from '@material-ui/core'
-import { TradingCalculator } from '../trading_calculator';
+import { TradingCalculator } from '../';
 
 const useStyles = makeStyles((theme) => ({
   root: {
