@@ -1,7 +1,8 @@
 import React from 'react'
 import { TradeGoodsTable } from '../trade_goods_table'
-import { TradeGoods, DemandLevels } from '../../model'
+import { TradeGoods, DemandLevels } from '../../data'
 import { makeStyles, Container, CssBaseline } from '@material-ui/core'
+import { TradingCalculator } from '../trading_calculator';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
 
   const classes = useStyles()
-  
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <div className={classes.toolbar} />
       <Container>
-        <TradeGoodsTable tradeGoods={TradeGoods} demandLevels={DemandLevels} />
+        <TradingCalculator />
       </Container>
     </div>
   )
