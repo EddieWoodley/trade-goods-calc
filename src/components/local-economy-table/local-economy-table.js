@@ -35,6 +35,24 @@ const LocalEconomyTable = (props) => {
     onChange(updatedLocalEconomy)
   }
 
+  const rollDice = (sides) => {
+    const random = Math.random()
+    return 1 + Math.floor(random * sides)
+  }
+
+  const rollEconomy = () => {
+    const randomEconomy = [...localEconomy]
+    randomEconomy.forEach((item) => {
+      const demandRoll = rollDice(20)
+      item.demandLevel = demandLevels.find((demandLevel) => demandRoll <= demandLevel.maxRoll)
+    })
+    const hasSpeciality = rollDice(2) > 1
+    if (hasSpeciality) {
+      randomEconomy[rollDice(randomEconomy.length)].isSpeciality = true
+    }
+    onChange(randomEconomy)
+  }
+
   return (
     <div>
       <TableContainer>
@@ -73,7 +91,7 @@ const LocalEconomyTable = (props) => {
         </Table>
       </TableContainer>
       <div className={classes.buttons}>
-        <Button className={classes.primaryButton} color="primary">Roll Economy</Button>
+        <Button className={classes.primaryButton} color="primary" onClick={() => rollEconomy()}>Roll Economy</Button>
         <Button className={classes.button} onClick={() => copyEconomy("markdown")}>Copy Markdown</Button>
         <Button className={classes.button} onClick={() => copyEconomy("bbcode")}>Copy BBCode</Button>
       </div>
