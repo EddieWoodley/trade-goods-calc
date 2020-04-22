@@ -1,6 +1,7 @@
 import React from 'react'
 import { Table, TableHead, TableCell, TableBody, TableRow, TableContainer, Button, makeStyles } from '@material-ui/core'
 import { formatPrice, formatModifier } from '../../utils'
+import { formatEconomy } from '../../utils/formatters/format-economy'
 
 const useStyles = makeStyles((theme) => ({
   buttons: {
@@ -20,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
 const LocalEconomyTable = (props) => {
   const { localEconomy, demandLevels, onChange } = props
   const classes = useStyles()
+
+  const copyEconomy = (format) => {
+    const result = formatEconomy(localEconomy, format)
+    navigator.clipboard.writeText(result)
+  }
 
   return (
     <div>
@@ -49,7 +55,8 @@ const LocalEconomyTable = (props) => {
       </TableContainer>
       <div className={classes.buttons}>
         <Button className={classes.primaryButton} color="primary">Roll Economy</Button>
-        <Button className={classes.button}>Export </Button>
+        <Button className={classes.button} onClick={() => copyEconomy("markdown")}>Copy Markdown</Button>
+        <Button className={classes.button} onClick={() => copyEconomy("bbcode")}>Copy BBCode</Button>
       </div>
     </div>
   )
