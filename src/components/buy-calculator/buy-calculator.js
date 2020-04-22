@@ -19,7 +19,7 @@ const BuyCalculator = (props) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} sm={6} md={9}>
           <FormControl fullWidth variant="outlined">
             <InputLabel id="trade-good-label">
               Trade Good
@@ -52,13 +52,22 @@ const BuyCalculator = (props) => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
+          <TextField
+            fullWidth
+            label="Demand Modifier"
+            variant="outlined"
+            inputProps={{ readOnly: true }}
+            value={formatModifier(selectedItem.demandLevel.modifier)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
           <FormControl fullWidth variant="outlined">
             <InputLabel id="trade-check-label">
-              Trade Check Result
+              Trade Check Modifier
             </InputLabel>
             <Select
               labelId="trade-check-label"
-              label="Trade Check Result"
+              label="Trade Check Modifier"
               value={tradeModifier}
               onChange={e => setTradeModifier(e.target.value)}
             >
@@ -70,9 +79,6 @@ const BuyCalculator = (props) => {
             </Select>
           </FormControl>
         </Grid>
-        <Hidden smDown>
-          <Grid item md={6} />
-        </Hidden>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             fullWidth
