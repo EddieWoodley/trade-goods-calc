@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TableHead, TableCell, TableBody, TableRow, TableContainer, Button, makeStyles } from '@material-ui/core'
+import { Table, TableHead, TableCell, TableBody, TableRow, TableContainer, Button, makeStyles, Select, MenuItem } from '@material-ui/core'
 import { formatPrice, formatModifier } from '../../utils'
 import { formatEconomy } from '../../utils/formatters/format-economy'
 
@@ -19,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const LocalEconomyTable = (props) => {
-  const { localEconomy, demandLevels, onChange } = props
+  const localEconomy = props.localEconomy || []
+  const demandLevels = props.demandLevels || []
+  const onChange = props.onChange || (() => { })
   const classes = useStyles()
 
   const copyEconomy = (format) => {
@@ -27,10 +29,16 @@ const LocalEconomyTable = (props) => {
     navigator.clipboard.writeText(result)
   }
 
+  const updateDemandLevel = (itemIndex, demandLevel) => {
+    const updatedLocalEconomy = [...localEconomy]
+    updatedLocalEconomy[itemIndex].demandLevel = demandLevel
+    onChange(updatedLocalEconomy)
+  }
+
   return (
     <div>
       <TableContainer>
-        <Table>
+        <Table size="small">
           <TableHead>
             <TableRow>
               <TableCell>Trade Good</TableCell>
@@ -41,11 +49,22 @@ const LocalEconomyTable = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {localEconomy.map((item => (
-              <TableRow>
+            {localEconomy.map(((item, itemIndex) => (
+              <TableRow hover key={itemIndex}>
                 <TableCell>{item.tradeGood.title}</TableCell>
                 <TableCell>{formatPrice(item.tradeGood.price)}</TableCell>
-                <TableCell>{item.demandLevel.title}</TableCell>
+                <TableCell>
+                  <Select
+                    fullWidth
+                    disableUnderline
+                    value={item.demandLevel}
+                    onChange={e => updateDemandLevel(itemIndex, e.target.value)}
+                  >
+                    {demandLevels.map(demandLevel => (
+                      <MenuItem key={demandLevel.title} value={demandLevel}>{demandLevel.title}</MenuItem>
+                    ))}
+                  </Select>
+                </TableCell>
                 <TableCell>{formatModifier(item.demandLevel.modifier)}</TableCell>
                 <TableCell>{item.isSpeciality ? "Yes" : "No"}</TableCell>
               </TableRow>

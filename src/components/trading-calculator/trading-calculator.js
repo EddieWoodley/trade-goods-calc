@@ -26,7 +26,8 @@ const TradingCalculator = () => {
     case 0:
       content = <LocalEconomyTable
         localEconomy={localEconomy}
-        onChange={(e, localEconomy) => setLocalEconomy(localEconomy)}
+        demandLevels={DemandLevels}
+        onChange={(localEconomy) => setLocalEconomy(localEconomy)}
       />
       break;
     case 1:
@@ -35,6 +36,8 @@ const TradingCalculator = () => {
     case 2:
       content = <Typography>Sell</Typography>
       break;
+    default:
+      content = <Typography>Select a Tab</Typography>
   }
 
   return (
