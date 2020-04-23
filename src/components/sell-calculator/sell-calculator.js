@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FormControl, Grid, MenuItem, Select, makeStyles, InputLabel, TextField } from '@material-ui/core'
+import { FormControl, Grid, MenuItem, Select, makeStyles, InputLabel, TextField, Hidden } from '@material-ui/core'
 import { formatModifier, formatPrice } from '../../utils'
 
 const useStyles = makeStyles((theme) => ({
@@ -9,16 +9,17 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const BuyCalculator = (props) => {
+const SellCalculator = (props) => {
   const localEconomy = props.localEconomy || []
   const [selectedItem, setSelectedItem] = useState(localEconomy[0])
   const [quantity, setQuantity] = useState(1)
+  const [specialityModifier, setSpecialityModifier] = useState(0)
   const [tradeModifier, setTradeModifier] = useState(0)
   const classes = useStyles()
 
   const basePrice = selectedItem.tradeGood.price * quantity
   const localPrice = basePrice * (1 + selectedItem.demandLevel.modifier)
-  const tradePrice = basePrice * (1 + selectedItem.demandLevel.modifier + tradeModifier)
+  const tradePrice = basePrice * (1 + selectedItem.demandLevel.modifier + tradeModifier + specialityModifier)
 
   return (
     <div className={classes.root}>
@@ -64,6 +65,28 @@ const BuyCalculator = (props) => {
             value={formatModifier(selectedItem.demandLevel.modifier)}
           />
         </Grid>
+        <Hidden xsDown>
+          <Grid item sm={6} md={3} />
+        </Hidden>
+        <Grid item xs={12} sm={6} md={3}>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel id="speciality-label">
+              Speciality Modifier
+            </InputLabel>
+            <Select
+              labelId="speciality-label"
+              label="Speciality Modifier"
+              value={specialityModifier}
+              onChange={e => setSpecialityModifier(e.target.value)}
+            >
+              {[0, 0.1, 0.15, 0.2].map(value => (
+                <MenuItem key={value} value={value}>
+                  {formatModifier(value)}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <FormControl fullWidth variant="outlined">
             <InputLabel id="trade-check-label">
@@ -83,6 +106,9 @@ const BuyCalculator = (props) => {
             </Select>
           </FormControl>
         </Grid>
+        <Hidden smDown>
+          <Grid item md={6} />
+        </Hidden>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             fullWidth
@@ -106,4 +132,4 @@ const BuyCalculator = (props) => {
   )
 }
 
-export default BuyCalculator
+export default SellCalculator

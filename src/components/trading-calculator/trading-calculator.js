@@ -3,6 +3,7 @@ import { TradeGoods, DemandLevels } from '../../data'
 import { Paper, Tabs, Tab, Typography, makeStyles } from '@material-ui/core'
 import { LocalEconomyTable } from '../'
 import { BuyCalculator } from '../buy-calculator'
+import { SellCalculator } from '../sell-calculator'
 
 const useStyles = makeStyles((theme) => ({
   tabs: {
@@ -35,7 +36,7 @@ const TradingCalculator = () => {
       content = <BuyCalculator localEconomy={localEconomy} />
       break;
     case 2:
-      content = <Typography>Sell</Typography>
+      content = <SellCalculator localEconomy={localEconomy} />
       break;
     default:
       content = <Typography>Select a Tab</Typography>
