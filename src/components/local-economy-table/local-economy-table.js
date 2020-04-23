@@ -63,6 +63,7 @@ const LocalEconomyTable = (props) => {
               <TableCell>Base Price</TableCell>
               <TableCell>Demand</TableCell>
               <TableCell>Demand Modifier</TableCell>
+              <TableCell>Local Price/10</TableCell>
               <TableCell>Speciality</TableCell>
             </TableRow>
           </TableHead>
@@ -84,6 +85,7 @@ const LocalEconomyTable = (props) => {
                   </Select>
                 </TableCell>
                 <TableCell>{formatModifier(item.demandLevel.modifier)}</TableCell>
+                <TableCell>{formatPrice(item.tradeGood.price * (1 + item.demandLevel.modifier) * 10)}</TableCell>
                 <TableCell>{item.isSpeciality ? "Yes" : "No"}</TableCell>
               </TableRow>
             )))}

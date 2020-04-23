@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FormControl, Grid, MenuItem, Select, makeStyles, InputLabel, TextField, Hidden } from '@material-ui/core'
+import { FormControl, Grid, MenuItem, Select, makeStyles, InputLabel, TextField } from '@material-ui/core'
 import { formatModifier, formatPrice } from '../../utils'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,7 @@ const SellCalculator = (props) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={9}>
+        <Grid item xs={12} md={6}>
           <FormControl fullWidth variant="outlined">
             <InputLabel id="trade-good-label">
               Trade Good
@@ -38,6 +38,25 @@ const SellCalculator = (props) => {
               {localEconomy.map(item => (
                 <MenuItem key={item.tradeGood.title} value={item}>
                   {item.tradeGood.title} ({item.demandLevel.title})
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel id="speciality-label">
+              Speciality Modifier
+            </InputLabel>
+            <Select
+              labelId="speciality-label"
+              label="Speciality Modifier"
+              value={specialityModifier}
+              onChange={e => setSpecialityModifier(e.target.value)}
+            >
+              {[0, 0.1, 0.15, 0.2].map(value => (
+                <MenuItem key={value} value={value}>
+                  {formatModifier(value)}
                 </MenuItem>
               ))}
             </Select>
@@ -65,28 +84,6 @@ const SellCalculator = (props) => {
             value={formatModifier(selectedItem.demandLevel.modifier)}
           />
         </Grid>
-        <Hidden xsDown>
-          <Grid item sm={6} md={3} />
-        </Hidden>
-        <Grid item xs={12} sm={6} md={3}>
-          <FormControl fullWidth variant="outlined">
-            <InputLabel id="speciality-label">
-              Speciality Modifier
-            </InputLabel>
-            <Select
-              labelId="speciality-label"
-              label="Speciality Modifier"
-              value={specialityModifier}
-              onChange={e => setSpecialityModifier(e.target.value)}
-            >
-              {[0, 0.1, 0.15, 0.2].map(value => (
-                <MenuItem key={value} value={value}>
-                  {formatModifier(value)}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <FormControl fullWidth variant="outlined">
             <InputLabel id="trade-check-label">
@@ -106,9 +103,6 @@ const SellCalculator = (props) => {
             </Select>
           </FormControl>
         </Grid>
-        <Hidden smDown>
-          <Grid item md={6} />
-        </Hidden>
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             fullWidth
