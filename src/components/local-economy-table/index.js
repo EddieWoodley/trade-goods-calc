@@ -1,0 +1,1 @@
+export { default as LocalEconomyTable } from './local-economy-table'
