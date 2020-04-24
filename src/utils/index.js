@@ -1,1 +1,1 @@
-export { formatPrice, formatModifier } from './formatters'
+export { formatPrice, formatModifier, formatWeight } from './formatters'

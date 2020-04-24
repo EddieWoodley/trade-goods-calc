@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, TableHead, TableCell, TableBody, TableRow, TableContainer, Button, makeStyles, Select, MenuItem } from '@material-ui/core'
-import { formatPrice, formatModifier } from '../../utils'
+import { formatPrice, formatModifier, formatWeight } from '../../utils'
 import { formatEconomy } from '../../utils/formatters/format-economy'
 
 const useStyles = makeStyles((theme) => ({
@@ -60,6 +60,7 @@ const LocalEconomyTable = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>Trade Good</TableCell>
+              <TableCell>Weight</TableCell>
               <TableCell>Base Price</TableCell>
               <TableCell>Demand</TableCell>
               <TableCell>Demand Modifier</TableCell>
@@ -71,6 +72,7 @@ const LocalEconomyTable = (props) => {
             {localEconomy.map(((item, itemIndex) => (
               <TableRow hover key={itemIndex}>
                 <TableCell>{item.tradeGood.title}</TableCell>
+                <TableCell>{formatWeight(item.tradeGood.weight)}</TableCell>
                 <TableCell>{formatPrice(item.tradeGood.price)}</TableCell>
                 <TableCell>
                   <Select

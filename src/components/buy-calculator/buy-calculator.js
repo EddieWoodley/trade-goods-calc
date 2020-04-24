@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormControl, Grid, MenuItem, Select, makeStyles, InputLabel, TextField } from '@material-ui/core'
-import { formatModifier, formatPrice } from '../../utils'
+import { formatModifier, formatPrice, formatWeight } from '../../utils'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +23,7 @@ const BuyCalculator = (props) => {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={9}>
+        <Grid item xs={12} sm={6}>
           <FormControl fullWidth variant="outlined">
             <InputLabel id="trade-good-label">
               Trade Good
@@ -42,7 +42,7 @@ const BuyCalculator = (props) => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={3}>
           <TextField
             fullWidth
             type="number"
@@ -53,6 +53,15 @@ const BuyCalculator = (props) => {
               min: 1
             }}
             onChange={e => setQuantity(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <TextField
+            fullWidth
+            label="Total Weight"
+            variant="outlined"
+            inputProps={{ readOnly: true }}
+            value={formatWeight(selectedItem.tradeGood.weight * quantity)}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
